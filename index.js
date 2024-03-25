@@ -3,7 +3,7 @@ import axios from "axios";
 import bodyParser from "body-parser";
 
 const app = express();
-const port = 5000;
+const port = 3000;
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
@@ -14,7 +14,7 @@ app.get("/", async(req, res) => {
         const steamApps = response.data.applist.apps;
         const filteredApps = steamApps.filter(app => app.name && app.name.trim() !== "");
         const appNames = filteredApps.map(app => app.name);
-        res.render("cards.ejs", {Apps : appNames});
+        res.render("index.ejs", {Apps : appNames});
     } catch (error) {
         console.error('Error fetching data:', error);
         res.status(500).send('Internal Server Error');
@@ -57,7 +57,7 @@ app.post("/search", async(req, res) => {
                 date: new Date(news.date * 1000)
             }));
 
-            res.render('cards.ejs', {
+            res.render('index.ejs', {
                 Name: name,
                 Description: short_description,
                 final_formatted_price: priceOverview,
