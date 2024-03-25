@@ -1,0 +1,43 @@
+.back {
+    background-color: #14161b;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 20px rgb(184, 184, 184);
+    backdrop-filter: blur(10px);
+}
+
+body {
+    background-color: #202c3c;
+}
+
+.info-card {
+    text-align: left;
+    width: 80rem;
+    background-color: #14161b;
+    border: none;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.info-card:hover {
+    transform: scale(0.95);
+}
+
+.textColor {
+    color: aliceblue;
+}
+
+h1, h2, h3, h4, h5, h6, p, a , span{
+    font-family: "Roboto Mono", monospace;
+  }
+
+.mb {
+    margin-bottom: 2rem;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  

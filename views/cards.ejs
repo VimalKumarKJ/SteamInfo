@@ -1,0 +1,40 @@
+<%- include("constants/header.ejs") %>
+
+<body>
+    <div class="container d-flex align-items-center justify-content-center mt-4 back">
+      <% if (locals.Name) { %>
+        <div class="card info-card mt-3 ">
+            <img src="<%= locals.cover_image %>" class="card-img-top rounded mx-auto d-block" alt="..." class="img-fluid">
+            <div class="card-body">
+              <h4 class="card-title text-white text-center"><%= (locals.Name).toUpperCase() %></h4>
+              <p class="card-text text-white"><%= locals.Description %></p>
+              <h5 class="card-title text-white border-bottom">Latest News</h5>
+              <% locals.news.forEach(newsItem => { %>
+                  <h6 class="card-subtitle my-2 textColor font-weight-bold " style="color: orange;"><%= newsItem.title %> by <%= newsItem.author %> [<%= newsItem.date %>]</h6>
+                  <p class="card-text text-white"><%= newsItem.contents %></p>
+              <% }); %>
+              <div class="card-footer border-light d-flex justify-content-between textColor">
+                <h6 style="color: green;">Price: <%= locals.final_formatted_price %></h6>
+                <a href="http://steamcommunity.com/app/<%= app_id %>">Community blog</a>
+              </div>
+            </div>
+        </div>
+      <% }else { %>
+        <div class="card info-card mt-3">
+          <img src="/images/bg.gif" class="card-img-top rounded mx-auto d-block" alt="..." class="img-fluid">
+          <div class="card-body">
+            <h4 class="card-title text-white text-center mb">Hola! Welcome to SteamInfo</h4>
+            <h5 class="card-text text-white text center mb">Ready to dive into the world of your favorite games and stay updated with the latest news and developer insights? Look no further, because everything you need is right here! Explore your beloved games and keep up with the freshest updates and devlogs—all in one convenient spot.</h5>
+            <h5 class="card-title" style="color: green;">Logs</h5>
+            <p class="card-text text-white">All future updates and patches for this websites will be recorded here!</p>
+            <ul>
+              <li><h6 class="card-subtitle my-2 textColor font-weight-bold " style="color: orange;">[25/3/2024] "Exciting news! 🎉 The website is now live as of March 25, 2024! Currently, the app provides the top 5 latest patches and important community posts/dev-logs. However, there are some glitches affecting certain games' posts or prices and presence of html tags within the content. I'm actively working on resolving these issues to provide more summarized info about all the games you love and care about. Stay tuned for updates!</h6></li>
+            </ul>
+            <div class="card-footer border-light d-flex justify-content-center textColor">
+            </div>
+          </div>
+      </div>
+      <% } %>
+    </div>
+</body>
+<%- include("constants/footer.ejs") %>
